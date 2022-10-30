@@ -1,0 +1,6 @@
+'    check1.Checked = False
+'    check2.Checked = True
+
+    If check1.Checked = True Then check1.Click
+    If check2.Checked = False Then check2.Click 
+

@@ -1,0 +1,9 @@
+Private Function getHTMLString(ie As InternetExplorer) As String
+    Dim htdoc As HTMLDocument
+    Set htdoc = ie.document
+    
+    Dim ret As String
+    ret = htdoc.getElementsByTagName("HTML")(0).outerHTML & vbCrLf
+    
+    getHTMLString = ret
+End Function

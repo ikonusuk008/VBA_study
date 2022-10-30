@@ -1,0 +1,108 @@
+------------------------------------------------------
+[0階層]
+フレーム画面 | http://book.impress.co.jp/appended/3384/6-1.html (Windows Internet Explorer)
+------------------------------------------------------
+#	タグ	Type	ID	Name	Value
+
+------------------------------------------------------
+<html><head>
+<title>フレーム画面</title>
+</head>
+<frameset rows="150,*,150">
+<frame name="fra1" src="./frame1.html">
+<frame name="fra2" src="./frame2.html">
+<frame name="fra3" src="./frame3.html">
+</frameset>
+</html>
+------------------------------------------------------
+[1階層]
+フレーム内1 | http://book.impress.co.jp/appended/3384/frame1.html (fra1)
+------------------------------------------------------
+#	タグ	Type	ID	Name	Value
+
+------------------------------------------------------
+<html><head><title>フレーム内1</title></head>
+<body bgcolor="#ffcccc">
+フレーム内1
+
+</body></html>
+------------------------------------------------------
+[1階層]
+フレーム内2 | http://book.impress.co.jp/appended/3384/frame2.html (fra2)
+------------------------------------------------------
+#	タグ	Type	ID	Name	Value
+0	INPUT	text	ABC123	ABC123	焼きそばパン
+1	INPUT	text	DEF234	DEF234	
+2	INPUT	text	GHI567	DEF234	
+3	TEXTAREA	textarea	JK890		
+4	SELECT	select-one	LM123	LM123	C
+5	INPUT	checkbox		C001	
+6	INPUT	checkbox		C002	
+7	INPUT	radio		R001	01
+8	INPUT	radio		R001	02
+9	INPUT	radio		R001	03
+10	INPUT	button			入力チェック
+11	INPUT	button			キャンセル
+12	INPUT	submit			送信
+
+------------------------------------------------------
+<html><head><title>フレーム内2</title></head>
+<body>
+<h1>フレーム2</h1>
+<hr>
+<input name="ABC123" id="ABC123">&nbsp;<b style="color: blue;">[0]</b><br>
+<input name="DEF234" id="DEF234">&nbsp;<b style="color: blue;">[1]</b><br>
+<input name="DEF234" id="GHI567">&nbsp;<b style="color: blue;">[2]</b><br>
+<textarea id="JK890"></textarea>&nbsp;<b style="color: blue;">[3]</b><br>
+<select name="LM123" id="LM123">
+	<option value="A">ホットドッグ</option>
+	<option selected="selected" value="B">やきそばパン</option>
+	<option value="C">たまごサンド</option>
+</select>&nbsp;<b style="color: blue;">[4]</b><br>
+<input name="C001" type="checkbox" value="">&nbsp;<b style="color: blue;">[5]</b>チェック1　<input name="C002" type="checkbox" checked="checked" value="">&nbsp;<b style="color: blue;">[6]</b>チェック2<br>
+<input name="R001" type="radio" value="01">&nbsp;<b style="color: blue;">[7]</b>ラジオ1　<input name="R001" type="radio" value="02">&nbsp;<b style="color: blue;">[8]</b>ラジオ2　<input name="R001" type="radio" value="03">&nbsp;<b style="color: blue;">[9]</b>ラジオ3<br>
+
+<input type="button" value="入力チェック">&nbsp;<b style="color: blue;">[10]</b>　　　<input type="button" value="キャンセル">&nbsp;<b style="color: blue;">[11]</b>　　　<input type="submit" value="送信">&nbsp;<b style="color: blue;">[12]</b>
+
+
+</body></html>
+------------------------------------------------------
+[1階層]
+フレーム内3 | http://book.impress.co.jp/appended/3384/frame3.html (fra3)
+------------------------------------------------------
+#	タグ	Type	ID	Name	Value
+
+------------------------------------------------------
+<html><head>
+<title>フレーム内3</title>
+</head>
+<frameset cols="*,*">
+<frame name="frame_left" src="./frame3_1.html">
+<frame name="frame_right" src="./frame3_2.html">
+</frameset>
+</html>
+------------------------------------------------------
+[2階層]
+フレーム3内_1 | http://book.impress.co.jp/appended/3384/frame3_1.html (frame_left)
+------------------------------------------------------
+#	タグ	Type	ID	Name	Value
+
+------------------------------------------------------
+<html><head><title>フレーム3内_1</title></head>
+<body bgcolor="#ccccff">
+フレーム3内_1
+
+</body></html>
+------------------------------------------------------
+[2階層]
+フレーム3内_2 | http://book.impress.co.jp/appended/3384/frame3_2.html (frame_right)
+------------------------------------------------------
+#	タグ	Type	ID	Name	Value
+
+------------------------------------------------------
+<html><head><title>フレーム3内_2</title></head>
+<body bgcolor="#ccffcc">
+フレーム3内_2
+
+</body></html>
+

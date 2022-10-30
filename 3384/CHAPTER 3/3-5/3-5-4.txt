@@ -1,0 +1,4 @@
+    Do While objIE.Busy
+        Sleep 100
+        SendKeys "{ENTER}", True
+    Loop

@@ -1,0 +1,25 @@
+For i = 0 To Doc.all.Length - 1
+        If Doc.all(i).tagName = "TH" Then
+            If Doc.all(i).innerText = "âtèª" Then
+                StartTag = i
+                Exit For
+            End If
+        End If
+    Next i
+
+    For i = StartTag To Doc.all.Length - 1
+        If Doc.all(i).tagName = "TH" Then
+            If Doc.all(i).innerText = "ÉÅÅ[ÉJÅ[" Then
+                FinishTag = i
+                Exit For
+            End If
+        End If
+    Next i
+    
+    For i = StartTag To FinishTag
+        If Doc.all(i).tagName = "TD" Then
+            n = n + 1
+            Cells(Int((n - 1) / 16) + 1, (n - 1) Mod 16 + 1) = Doc.all(i).innerText
+        End If
+    Next i
+

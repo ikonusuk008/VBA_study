@@ -1,0 +1,10 @@
+ 	strTemp = win.LocationURL
+
+        On Error Resume Next
+        strTemp = win.document.body.innertext
+        On Error GoTo 0
+        If InStr(strTemp, " アップデート情報") > 0 Then
+            Set objIE = win
+            Exit For
+        End If
+

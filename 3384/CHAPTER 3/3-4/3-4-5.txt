@@ -1,0 +1,14 @@
+
+Private Declare Function SetForegroundWindow Lib "user32" (ByVal hWnd As Long) As Long
+
+Private Declare Function IsIconic Lib "user32" (ByVal hWnd As Long) As Long
+
+Private Declare Function ShowWindowAsync Lib "user32" (ByVal hWnd As Long, ByVal nCmdShow As Long) As Long
+
+Sub showForeground(objIE As Object)
+    If IsIconic(objIE.hWnd) Then
+        ShowWindowAsync objIE.hWnd, &H9
+    End If
+
+    SetForegroundWindow (objIE.hWnd)
+End Sub
