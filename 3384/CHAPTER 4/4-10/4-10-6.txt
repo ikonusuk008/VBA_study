@@ -1,7 +1,0 @@
-    Set ObjTD = Doc.getElementsByTagName("TD")
-    For Each ObjTag In ObjTD
-        n = n + 1
-        Cells(n, 1) = n
-        Cells(n, 2) = ObjTag.tagName
-        Cells(n, 3) = ObjTag.innerText
-    Next ObjTag

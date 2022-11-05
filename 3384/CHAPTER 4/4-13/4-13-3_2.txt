@@ -1,3 +1,0 @@
-    pwin.setTimeout "showMessage('VBA‚©‚çshowMessage‚ğ”ñ“¯ŠúÀs')", 0 
-    MsgBox "VBA‚ÌŒã‘±ˆ—"   
-End Sub

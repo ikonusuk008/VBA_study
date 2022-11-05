@@ -1,2 +1,0 @@
-    Dim colSh As Object
-    Set colSh = CreateObject("Shell.Application")
