@@ -1,4 +1,4 @@
-Attribute VB_Name = "L6_2_3_printMain"
+Attribute VB_Name = "L6_2_4_printMain"
 Option Explicit
 
 Public Sub printMain()

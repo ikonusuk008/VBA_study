@@ -1,39 +1,25 @@
-Attribute VB_Name = "L6_2_3_printMain"
+Attribute VB_Name = "L6_2_1_2_printMain"
 Option Explicit
 
 Public Sub printMain()
     Dim ie As InternetExplorer
-'   Set ie = CreateObject("InternetExplorer.Application")
-'   ie.Visible = True
-'   ie.Navigate "http://www.impressjapan.jp/appended/3384/6-1.html"
-'   Do While ie.Busy Or ie.ReadyState < READYSTATE_COMPLETE
-'   DoEvents
-'   Loop
+    Set ie = CreateObject("InternetExplorer.Application")
+    ie.Visible = True
+    ie.Navigate "http://book.impress.co.jp/appended/3384/6-1.html"
+    Do While ie.Busy Or ie.readyState < READYSTATE_COMPLETE
+        DoEvents
+    Loop
     
-    Dim DocumentTitle As String
-    DocumentTitle = InputBox("解析対象画面のタイトルを入力してください")
-    If DocumentTitle <> "" Then
-        Set ie = getIE(DocumentTitle)
-    End If
-    
-    If ie Is Nothing Then
-        MsgBox "タイトル未入力または対象画面が見つかりません"
-        Exit Sub
-    End If
-    
-    Dim html As String
-    html = getHTMLString(ie)
+    Dim HTMLString As String
+    HTMLString = getHTMLString(ie)
     
     Dim FileName As String
     FileName = ThisWorkbook.Path & "\HTML_" & Format(Now, "YYYYMMDDHHmmSS") & ".txt"
     Dim FileNum As Integer
     FileNum = FreeFile()
-    
     Open FileName For Output As #FileNum
-        Print #FileNum, html
+        Print #FileNum, HTMLString
     Close #FileNum
-    
-    MsgBox "Webページの解析が完了しました。解析結果は " & FileName & " に記録されています"
 End Sub
 
 
@@ -71,42 +57,17 @@ End Function
 
 Private Function getElementList(htdoc As HTMLDocument) As String
     Dim ret As String
-    ret = "#" & vbTab & "タグ" & vbTab & "Type" & vbTab & "ID" & vbTab & "Name" & vbTab & "Value" & vbCrLf
+    ret = "タグ" & vbTab & "Type" & vbTab & "ID" & vbTab & "Name" & vbTab & "Value" & vbCrLf
     Dim element As Object
-    Dim i As Long
     For Each element In htdoc.all
         Select Case UCase(element.tagName)
             Case "INPUT", "TEXTAREA", "SELECT"
-                ret = ret & CStr(i) & vbTab & element.tagName & vbTab & element.Type & vbTab & element.ID & vbTab & element.Name & vbTab & element.Value & vbCrLf
-                If UCase(element.Type) <> "HIDDEN" Then
-                    element.outerHTML = element.outerHTML & "&nbsp;<b style=""color:blue;"">[" & CStr(i) & "]</b>"
-                End If
-                i = i + 1
+                ret = ret & element.tagName & vbTab & element.Type & vbTab & element.ID & vbTab & element.Name & vbTab & element.Value & vbCrLf
         End Select
     Next
     getElementList = ret
 End Function
 
 
-Private Function getIE(arg_title As String) As InternetExplorer
-    Dim ie As InternetExplorer
-    Dim sh As Object
-    Dim win As Object
-    Dim DocumentTitle As String
-    
-    Set sh = CreateObject("Shell.Application")
-    
-    For Each win In sh.Windows
-        DocumentTitle = ""
-        On Error Resume Next
-        DocumentTitle = win.document.Title
-        On Error GoTo 0
-        If InStr(DocumentTitle, arg_title) > 0 Then
-            Set ie = win
-            Exit For
-        End If
-    Next
 
-    Set getIE = ie
-End Function
 
